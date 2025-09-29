@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sameer Panday - Professional TEFL Teacher Portfolio with CV, Lesson Plans, and Teaching Materials">
-    <meta name="keywords" content="TEFL, English Teacher, ESL, Teaching Portfolio, Lesson Plans">
-    <title>Sameer Panday - TEFL Teaching Portfolio</title>
+    <meta name="description" content="Sameer Panday - Professional TEFL Teacher Portfolio">
+    <title>Sameer Panday - TEFL Portfolio</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -15,9 +14,7 @@
             .no-print { display: none !important; }
             body { margin: 0; padding: 20px; }
         }
-        .page-break {
-            page-break-after: always;
-        }
+        .page-break { page-break-after: always; }
     </style>
 </head>
 <body>
@@ -28,6 +25,7 @@
 
         function TEFLPortfolio() {
             const [activeSection, setActiveSection] = useState('home');
+            const [selectedPresentation, setSelectedPresentation] = useState('alphabet');
 
             const Navigation = () => (
                 <nav className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 shadow-lg no-print">
@@ -37,26 +35,24 @@
                                 <h1 className="text-3xl font-bold">Sameer Panday</h1>
                                 <p className="text-blue-100">TEFL/TESOL Professional Portfolio</p>
                             </div>
-                            <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
+                            <div className="text-5xl">🎓</div>
                         </div>
                         <div className="flex flex-wrap gap-2">
-                            <button onClick={() => setActiveSection('home')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'home' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
-                                🏠 Home
-                            </button>
-                            <button onClick={() => setActiveSection('cv')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'cv' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
-                                👤 CV
-                            </button>
-                            <button onClick={() => setActiveSection('lessons')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'lessons' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
-                                📚 Lesson Plans
-                            </button>
-                            <button onClick={() => setActiveSection('worksheets')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'worksheets' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
-                                📝 Worksheets
-                            </button>
-                            <button onClick={() => setActiveSection('presentation')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'presentation' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
-                                🎤 Presentations
-                            </button>
+                            {[
+                                { id: 'home', label: '🏠 Home' },
+                                { id: 'cv', label: '👤 CV' },
+                                { id: 'lessons', label: '📚 Lessons' },
+                                { id: 'worksheets', label: '📝 Worksheets' },
+                                { id: 'presentation', label: '🎤 Presentations' }
+                            ].map(item => (
+                                <button 
+                                    key={item.id}
+                                    onClick={() => setActiveSection(item.id)} 
+                                    className={`px-4 py-2 rounded-lg transition ${activeSection === item.id ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </nav>
@@ -67,34 +63,29 @@
                     <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-6 shadow-lg">
                         <h2 className="text-4xl font-bold text-gray-800 mb-4">Welcome to My Teaching Portfolio</h2>
                         <p className="text-lg text-gray-700 mb-6">
-                            I'm Sameer Panday, a certified TEFL/TESOL English teacher and native English speaker specializing in young learners aged 6-9 years. 
-                            This portfolio showcases my teaching methodology, lesson planning skills, and educational materials designed 
-                            to create engaging and effective learning experiences.
+                            I'm Sameer Panday, a certified TEFL/TESOL English teacher and native English speaker specializing in young learners aged 6-9 years.
                         </p>
                         <div className="grid md:grid-cols-3 gap-4">
                             <div className="bg-white p-6 rounded-lg shadow">
-                                <div className="text-blue-600 mb-3 text-4xl">🎓</div>
+                                <div className="text-4xl mb-3">🎓</div>
                                 <h3 className="font-bold text-lg mb-2">Certified Professional</h3>
-                                <p className="text-gray-600">150-Hour TEFL Certificate with 4 years teaching experience</p>
+                                <p className="text-gray-600">150-Hour TEFL Certificate with 4 years experience</p>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow">
-                                <div className="text-blue-600 mb-3 text-4xl">📚</div>
+                                <div className="text-4xl mb-3">📚</div>
                                 <h3 className="font-bold text-lg mb-2">Engaging Lessons</h3>
-                                <p className="text-gray-600">Creative, student-centered lesson plans for young learners</p>
+                                <p className="text-gray-600">Creative, student-centered lesson plans</p>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow">
-                                <div className="text-blue-600 mb-3 text-4xl">📝</div>
+                                <div className="text-4xl mb-3">📝</div>
                                 <h3 className="font-bold text-lg mb-2">Quality Materials</h3>
-                                <p className="text-gray-600">Custom worksheets and activities for beginner English</p>
+                                <p className="text-gray-600">Custom worksheets and activities</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="bg-white rounded-xl p-8 shadow-lg mb-6">
                         <h3 className="text-2xl font-bold text-gray-800 mb-4">Teaching Philosophy</h3>
-                        <p className="text-gray-700 mb-4">
-                            I believe that language learning should be fun, interactive, and meaningful. My approach focuses on:
-                        </p>
                         <ul className="space-y-2 text-gray-700">
                             <li className="flex items-start">
                                 <span className="text-blue-600 mr-2">▸</span>
@@ -102,15 +93,15 @@
                             </li>
                             <li className="flex items-start">
                                 <span className="text-blue-600 mr-2">▸</span>
-                                <span><strong>Visual and Kinesthetic Methods:</strong> Using games, songs, and movement to reinforce learning</span>
+                                <span><strong>Visual and Kinesthetic Methods:</strong> Using games, songs, and movement</span>
                             </li>
                             <li className="flex items-start">
                                 <span className="text-blue-600 mr-2">▸</span>
-                                <span><strong>Positive Reinforcement:</strong> Creating a supportive environment where mistakes are learning opportunities</span>
+                                <span><strong>Positive Reinforcement:</strong> Creating supportive environments</span>
                             </li>
                             <li className="flex items-start">
                                 <span className="text-blue-600 mr-2">▸</span>
-                                <span><strong>Cultural Awareness:</strong> Incorporating diverse perspectives and inclusive teaching practices</span>
+                                <span><strong>Cultural Awareness:</strong> Incorporating diverse perspectives</span>
                             </li>
                         </ul>
                     </div>
@@ -121,29 +112,29 @@
                             <div className="flex items-start">
                                 <span className="text-green-600 text-2xl mr-3">✓</span>
                                 <div>
-                                    <h4 className="font-semibold text-gray-800">Native English Speaker</h4>
-                                    <p className="text-gray-600 text-sm">English is my mother tongue with a neutral accent</p>
+                                    <h4 className="font-semibold">Native English Speaker</h4>
+                                    <p className="text-gray-600 text-sm">Mother tongue with neutral accent</p>
                                 </div>
                             </div>
                             <div className="flex items-start">
                                 <span className="text-green-600 text-2xl mr-3">✓</span>
                                 <div>
-                                    <h4 className="font-semibold text-gray-800">Multilingual</h4>
-                                    <p className="text-gray-600 text-sm">Fluent in English, Zulu (native), and conversational Afrikaans</p>
+                                    <h4 className="font-semibold">Multilingual</h4>
+                                    <p className="text-gray-600 text-sm">English, Zulu, Afrikaans</p>
                                 </div>
                             </div>
                             <div className="flex items-start">
                                 <span className="text-green-600 text-2xl mr-3">✓</span>
                                 <div>
-                                    <h4 className="font-semibold text-gray-800">Tech-Ready</h4>
-                                    <p className="text-gray-600 text-sm">Professional setup for online teaching with reliable internet</p>
+                                    <h4 className="font-semibold">Tech-Ready</h4>
+                                    <p className="text-gray-600 text-sm">Professional online teaching setup</p>
                                 </div>
                             </div>
                             <div className="flex items-start">
                                 <span className="text-green-600 text-2xl mr-3">✓</span>
                                 <div>
-                                    <h4 className="font-semibold text-gray-800">Proven Track Record</h4>
-                                    <p className="text-gray-600 text-sm">4 years of successful teaching experience</p>
+                                    <h4 className="font-semibold">Proven Experience</h4>
+                                    <p className="text-gray-600 text-sm">4 years teaching success</p>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +146,7 @@
                 <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
                     <div className="flex justify-between items-center mb-6 no-print">
                         <h2 className="text-3xl font-bold text-gray-800">Curriculum Vitae</h2>
-                        <button onClick={() => window.print()} className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition">
+                        <button onClick={() => window.print()} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
                             📥 Download PDF
                         </button>
                     </div>
@@ -175,17 +166,15 @@
                         <p className="text-gray-700 leading-relaxed">
                             Dynamic and dedicated native English speaker with 4 years of combined teaching experience, including 2 years of specialized 
                             private English tutoring and 2 years of physical education instruction. TEFL-certified professional with proven expertise in 
-                            creating engaging, student-centered learning environments that enhance language proficiency and build learner confidence. 
-                            Adept at designing customized lesson plans that address diverse learning needs and styles. Bilingual educator (English/Zulu) 
-                            experienced in both in-person and online teaching modalities with strong cross-cultural communication skills and technical 
-                            proficiency for digital education delivery.
+                            creating engaging, student-centered learning environments. Bilingual educator (English/Zulu) experienced in both in-person and 
+                            online teaching modalities with strong cross-cultural communication skills.
                         </p>
                     </div>
 
                     <div className="mb-6">
                         <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Key Skills</h3>
                         <div className="flex flex-wrap gap-2">
-                            {['Lesson Planning', 'Student Engagement', 'Classroom Management', 'Cultural Awareness', 'Online Teaching', 'Communication', 'Adaptability', 'Curriculum Design'].map(skill => (
+                            {['Lesson Planning', 'Student Engagement', 'Classroom Management', 'Cultural Awareness', 'Online Teaching', 'Communication'].map(skill => (
                                 <span key={skill} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">{skill}</span>
                             ))}
                         </div>
@@ -196,12 +185,11 @@
                         
                         <div className="mb-4">
                             <h4 className="text-lg font-bold text-gray-800">Private English Tutor</h4>
-                            <p className="text-gray-600 italic mb-2">Self-Employed | January 2023 – Present | Pietermaritzburg, SA</p>
+                            <p className="text-gray-600 italic mb-2">Self-Employed | January 2023 – Present</p>
                             <ul className="space-y-1 text-gray-700">
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Deliver personalized one-on-one English instruction to students across beginner, intermediate, and advanced proficiency levels</li>
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Design and implement customized lesson plans targeting all four language skills: speaking, reading, writing, and listening</li>
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Create engaging, interactive learning activities that promote active participation and accelerate language acquisition</li>
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Provide consistent progress assessments and constructive feedback to guide student improvement</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Deliver personalized English instruction across all proficiency levels</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Design customized lesson plans for speaking, reading, writing, and listening</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Create engaging activities promoting active participation</li>
                             </ul>
                         </div>
 
@@ -209,9 +197,8 @@
                             <h4 className="text-lg font-bold text-gray-800">Part-Time Physical Education Teacher</h4>
                             <p className="text-gray-600 italic mb-2">Local School, Durban | March 2022 – December 2024</p>
                             <ul className="space-y-1 text-gray-700">
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Delivered comprehensive physical education curriculum promoting fitness, teamwork, and healthy lifestyle habits</li>
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Developed age-appropriate activities that fostered student engagement and physical development</li>
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Maintained positive classroom discipline and motivated students in a supportive learning environment</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Delivered comprehensive PE curriculum promoting fitness and teamwork</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Developed age-appropriate activities fostering student engagement</li>
                             </ul>
                         </div>
                     </div>
@@ -220,98 +207,535 @@
                         <div>
                             <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Certifications</h3>
                             <ul className="space-y-2 text-gray-700">
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>150-Hour TEFL Certificate</li>
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>ISTQB Certified Tester Foundation Level</li>
-                                <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>National Diploma in Information Technology</li>
+                                <li>✓ 150-Hour TEFL Certificate</li>
+                                <li>✓ ISTQB Certified Tester</li>
+                                <li>✓ IT Diploma</li>
                             </ul>
                         </div>
                         <div>
                             <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Languages</h3>
                             <ul className="space-y-2 text-gray-700">
-                                <li><strong>English:</strong> Native Speaker - Mother Tongue</li>
-                                <li><strong>Zulu:</strong> Native Speaker</li>
+                                <li><strong>English:</strong> Native Speaker</li>
+                                <li><strong>Zulu:</strong> Native</li>
                                 <li><strong>Afrikaans:</strong> Conversational</li>
                             </ul>
                         </div>
                     </div>
+                </div>
+            );
 
-                    <div className="mt-6">
-                        <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Technical Setup for Online Teaching</h3>
-                        <div className="grid md:grid-cols-2 gap-4 text-gray-700">
-                            <div className="flex items-center gap-2">
-                                <span className="text-blue-600">💻</span>
-                                <span>Huawei i5 Laptop (16GB RAM)</span>
+            const LessonPlansSection = () => (
+                <div className="max-w-5xl mx-auto space-y-6">
+                    <div className="bg-white rounded-xl shadow-lg p-8">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-6">Sample Lesson Plans</h2>
+                        <p className="text-gray-600 mb-6">Beginner Level English for Young Learners (Ages 6-9)</p>
+
+                        {/* Lesson Plan 1 */}
+                        <div className="mb-8 border-2 border-blue-200 rounded-lg p-6 bg-blue-50">
+                            <h3 className="text-2xl font-bold text-blue-800 mb-4">Lesson 1: Colors and Shapes</h3>
+                            
+                            <div className="grid md:grid-cols-2 gap-4 mb-4 text-sm">
+                                <div>
+                                    <p><strong>Level:</strong> Beginner A1</p>
+                                    <p><strong>Duration:</strong> 45 minutes</p>
+                                </div>
+                                <div>
+                                    <p><strong>Focus:</strong> Vocabulary, Speaking</p>
+                                    <p><strong>Materials:</strong> Flashcards, crayons</p>
+                                </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-blue-600">🎧</span>
-                                <span>Noise-canceling USB Headset</span>
+
+                            <div className="mb-4">
+                                <h4 className="font-bold text-lg mb-2">Learning Objectives:</h4>
+                                <ul className="space-y-1 text-sm">
+                                    <li>• Identify 8 basic colors</li>
+                                    <li>• Recognize 4 basic shapes</li>
+                                    <li>• Use "This is a [color] [shape]"</li>
+                                </ul>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-blue-600">📹</span>
-                                <span>HD Webcam</span>
+
+                            <div className="space-y-3">
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-blue-700 mb-1">Warm-up (5 min)</h5>
+                                    <p className="text-sm">Greeting song, classroom color review</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-blue-700 mb-1">Presentation (10 min)</h5>
+                                    <p className="text-sm">Introduce color/shape flashcards with gestures and repetition</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-blue-700 mb-1">Practice (15 min)</h5>
+                                    <p className="text-sm">Color hunt, shape drawing, flashcard games</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-blue-700 mb-1">Production (10 min)</h5>
+                                    <p className="text-sm">Create "Shape Monster" and present to class</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-blue-700 mb-1">Cool-down (5 min)</h5>
+                                    <p className="text-sm">Color song, review, praise stickers</p>
+                                </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-blue-600">🌐</span>
-                                <span>50 Mbps Fiber Internet</span>
+                        </div>
+
+                        {/* Lesson Plan 2 */}
+                        <div className="mb-8 border-2 border-green-200 rounded-lg p-6 bg-green-50">
+                            <h3 className="text-2xl font-bold text-green-800 mb-4">Lesson 2: Family Members</h3>
+                            
+                            <div className="grid md:grid-cols-2 gap-4 mb-4 text-sm">
+                                <div>
+                                    <p><strong>Level:</strong> Beginner A1</p>
+                                    <p><strong>Duration:</strong> 45 minutes</p>
+                                </div>
+                                <div>
+                                    <p><strong>Focus:</strong> Vocabulary, Speaking</p>
+                                    <p><strong>Materials:</strong> Family cards, puppets</p>
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="font-bold text-lg mb-2">Learning Objectives:</h4>
+                                <ul className="space-y-1 text-sm">
+                                    <li>• Identify 6 family members</li>
+                                    <li>• Use "This is my [family member]"</li>
+                                    <li>• Answer "Who is this?"</li>
+                                </ul>
+                            </div>
+
+                            <div className="space-y-3">
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-green-700 mb-1">Warm-up (5 min)</h5>
+                                    <p className="text-sm">Show teacher's family photo, build excitement</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-green-700 mb-1">Presentation (12 min)</h5>
+                                    <p className="text-sm">Introduce family cards with gestures, finger puppets</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-green-700 mb-1">Practice (15 min)</h5>
+                                    <p className="text-sm">Finger Family song, flashcard match, "Who's Missing" game</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-green-700 mb-1">Production (10 min)</h5>
+                                    <p className="text-sm">Draw family and present to class</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-green-700 mb-1">Cool-down (3 min)</h5>
+                                    <p className="text-sm">Final song, homework suggestion</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Lesson Plan 3 */}
+                        <div className="border-2 border-purple-200 rounded-lg p-6 bg-purple-50">
+                            <h3 className="text-2xl font-bold text-purple-800 mb-4">Lesson 3: Animals and Sounds</h3>
+                            
+                            <div className="grid md:grid-cols-2 gap-4 mb-4 text-sm">
+                                <div>
+                                    <p><strong>Level:</strong> Beginner A1</p>
+                                    <p><strong>Duration:</strong> 45 minutes</p>
+                                </div>
+                                <div>
+                                    <p><strong>Focus:</strong> Vocabulary, Pronunciation</p>
+                                    <p><strong>Materials:</strong> Animal flashcards, masks</p>
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="font-bold text-lg mb-2">Learning Objectives:</h4>
+                                <ul className="space-y-1 text-sm">
+                                    <li>• Identify 8 common animals</li>
+                                    <li>• Match animals to sounds</li>
+                                    <li>• Use "The [animal] says [sound]"</li>
+                                </ul>
+                            </div>
+
+                            <div className="space-y-3">
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-purple-700 mb-1">Warm-up (5 min)</h5>
+                                    <p className="text-sm">Animal sound guessing game</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-purple-700 mb-1">Presentation (10 min)</h5>
+                                    <p className="text-sm">Introduce animals with flashcards, movements, and sounds</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-purple-700 mb-1">Practice (15 min)</h5>
+                                    <p className="text-sm">Old MacDonald song, sound matching, animal walk</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-purple-700 mb-1">Production (12 min)</h5>
+                                    <p className="text-sm">Farm Show with animal masks</p>
+                                </div>
+                                <div className="bg-white rounded p-3">
+                                    <h5 className="font-semibold text-purple-700 mb-1">Cool-down (3 min)</h5>
+                                    <p className="text-sm">Slow song, review, animal stickers</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             );
 
-            // Lesson Plans and Worksheets sections remain the same as before
-            // (I'll include them in the complete code)
-
-            const PresentationSection = () => {
-                const [selectedPresentation, setSelectedPresentation] = useState('alphabet');
-
-                return (
-                    <div className="max-w-6xl mx-auto">
-                        <div className="bg-white rounded-xl shadow-lg p-8">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-6">Teaching Presentations</h2>
+            const WorksheetsSection = () => (
+                <div className="max-w-5xl mx-auto space-y-6">
+                    <div className="bg-white rounded-xl shadow-lg p-8">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-6">Printable Worksheets</h2>
+                        
+                        {/* Worksheet 1 */}
+                        <div className="mb-8 border-4 border-blue-400 rounded-lg p-6">
+                            <h3 className="text-2xl font-bold text-blue-600 mb-4 text-center">🎨 Colors and Shapes 🎨</h3>
                             
-                            <div className="flex gap-4 mb-6 no-print">
-                                <button 
-                                    onClick={() => setSelectedPresentation('alphabet')}
-                                    className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${selectedPresentation === 'alphabet' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-                                >
-                                    🎵 Alphabet Adventure Song
-                                </button>
-                                <button 
-                                    onClick={() => setSelectedPresentation('tinytalkers')}
-                                    className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${selectedPresentation === 'tinytalkers' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-                                >
-                                    ⭐ Tiny Talkers
-                                </button>
+                            <div className="mb-6">
+                                <h4 className="font-bold text-lg text-blue-700 mb-3">Activity 1: Color the Shapes</h4>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="border-2 p-4 text-center">
+                                        <div className="w-24 h-24 border-4 border-black rounded-full mx-auto mb-2"></div>
+                                        <p className="font-semibold">Color RED</p>
+                                    </div>
+                                    <div className="border-2 p-4 text-center">
+                                        <div className="w-24 h-24 border-4 border-black mx-auto mb-2"></div>
+                                        <p className="font-semibold">Color BLUE</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            {selectedPresentation === 'alphabet' && (
-                                <div className="space-y-6">
-                                    <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-6 border-2 border-purple-300">
-                                        <h3 className="text-2xl font-bold text-purple-800 mb-3">Alphabet Adventure Song</h3>
-                                        <p className="text-gray-700 mb-4">
-                                            An engaging, multi-sensory approach to teaching the alphabet through song, movement, and interactive activities. Perfect for beginner learners aged 6-9.
-                                        </p>
-                                    </div>
-                                    {/* Rest of presentation content */}
-                                </div>
-                            )}
+                            <div className="mb-6">
+                                <h4 className="font-bold text-lg text-blue-700 mb-3">Activity 2: Match Words to Shapes</h4>
+                                <p className="text-sm">Draw lines to match each word to its shape</p>
+                            </div>
 
-                            {selectedPresentation === 'tinytalkers' && (
-                                <div className="space-y-6">
-                                    <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-6 border-2 border-blue-300">
-                                        <h3 className="text-2xl font-bold text-blue-800 mb-3">Tiny Talkers: English for Little Stars</h3>
-                                        <p className="text-gray-700 mb-4">
-                                            A comprehensive beginner English curriculum covering greetings, colors, numbers, animals, and emotions.
-                                        </p>
-                                    </div>
-                                    {/* Rest of presentation content */}
+                            <div>
+                                <h4 className="font-bold text-lg text-blue-700 mb-3">Activity 3: Draw Your Favorite</h4>
+                                <div className="border-4 border-dashed border-blue-300 p-6 min-h-32 bg-blue-50">
+                                    <p>My favorite shape: __________</p>
+                                    <p>My favorite color: __________</p>
                                 </div>
-                            )}
+                            </div>
+                        </div>
+
+                        {/* Worksheet 2 */}
+                        <div className="mb-8 border-4 border-green-400 rounded-lg p-6">
+                            <h3 className="text-2xl font-bold text-green-600 mb-4 text-center">👨‍👩‍👧‍👦 My Family 👨‍👩‍👧‍👦</h3>
+                            
+                            <div className="mb-6">
+                                <h4 className="font-bold text-lg text-green-700 mb-3">Activity 1: Label the Family</h4>
+                                <div className="bg-green-50 p-4 rounded mb-4">
+                                    <p className="font-bold mb-2">Word Bank:</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {['mother', 'father', 'sister', 'brother', 'grandmother', 'grandfather'].map(word => (
+                                            <span key={word} className="bg-white px-3 py-1 border-2 border-green-400 rounded">{word}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-3 gap-4">
+                                    {['👩', '👨', '👧', '👦', '👵', '👴'].map((emoji, i) => (
+                                        <div key={i} className="border-2 p-4 text-center">
+                                            <div className="text-5xl mb-2">{emoji}</div>
+                                            <div className="border-b-2 w-full"></div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-lg text-green-700 mb-3">Activity 2: Draw Your Family</h4>
+                                <div className="border-4 border-dashed border-green-300 p-6 min-h-40 bg-green-50">
+                                    <p>Draw your family here!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Worksheet 3 */}
+                        <div className="border-4 border-orange-400 rounded-lg p-6">
+                            <h3 className="text-2xl font-bold text-orange-600 mb-4 text-center">🐮 Farm Animals 🐷</h3>
+                            
+                            <div className="mb-6">
+                                <h4 className="font-bold text-lg text-orange-700 mb-3">Activity 1: Match Animals to Sounds</h4>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="space-y-2">
+                                        {[['🐮', 'COW'], ['🐶', 'DOG'], ['🐱', 'CAT'], ['🐷', 'PIG']].map(([emoji, animal]) => (
+                                            <div key={animal} className="border-2 p-2 flex items-center gap-2">
+                                                <span className="text-2xl">{emoji}</span>
+                                                <span className="font-bold">{animal}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="space-y-2">
+                                        {['MOO!', 'WOOF!', 'MEOW!', 'OINK!'].map(sound => (
+                                            <div key={sound} className="border-2 bg-orange-50 p-2 font-bold text-center">{sound}</div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mb-6">
+                                <h4 className="font-bold text-lg text-orange-700 mb-3">Activity 2: Complete the Sentences</h4>
+                                <div className="space-y-2">
+                                    <p>1. The _______ says "Moo!"</p>
+                                    <p>2. The _______ says "Woof!"</p>
+                                    <p>3. The _______ says "Meow!"</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 className="font-bold text-lg text-orange-700 mb-3">Activity 3: Draw Your Favorite</h4>
+                                <div className="border-4 border-dashed border-orange-300 p-6 min-h-32 bg-orange-50">
+                                    <p>My favorite animal is: __________</p>
+                                    <p>It says: __________</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                );
-            };
+                </div>
+            );
+
+            const PresentationSection = () => (
+                <div className="max-w-6xl mx-auto">
+                    <div className="bg-white rounded-xl shadow-lg p-8">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-6">Teaching Presentations</h2>
+                        
+                        <div className="flex gap-4 mb-6 no-print">
+                            <button 
+                                onClick={() => setSelectedPresentation('alphabet')}
+                                className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${selectedPresentation === 'alphabet' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+                            >
+                                🎵 Alphabet Adventure Song
+                            </button>
+                            <button 
+                                onClick={() => setSelectedPresentation('tinytalkers')}
+                                className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${selectedPresentation === 'tinytalkers' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+                            >
+                                ⭐ Tiny Talkers
+                            </button>
+                        </div>
+
+                        {selectedPresentation === 'alphabet' && (
+                            <div className="space-y-6">
+                                <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-6 border-2 border-purple-300">
+                                    <h3 className="text-2xl font-bold text-purple-800 mb-3">Alphabet Adventure Song</h3>
+                                    <p className="text-gray-700 mb-4">
+                                        Multi-sensory approach to teaching the alphabet through song, movement, and interactive activities. Perfect for ages 6-9.
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        <span className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-purple-700">Phonics</span>
+                                        <span className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-purple-700">Music & Movement</span>
+                                        <span className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-purple-700">Interactive</span>
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">Welcome Aboard</h4>
+                                            <p className="text-sm">Meet Letters A-Z</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Welcome students to meet all 26 letters as friendly characters, setting a playful tone.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-green-400 to-teal-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">👏 Clapping & Echoing</h4>
+                                            <p className="text-sm">Warm-up Activity</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Students clap for each letter and echo back, training ears to recognize phonetic boundaries.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🎵 Sing the Song</h4>
+                                            <p className="text-sm">Complete Alphabet</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Full lyrics with group participation, building confidence through familiar melody and rhythm.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-pink-400 to-red-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🎯 Letters A-G</h4>
+                                            <p className="text-sm">Individual Focus</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Echo exercises ensuring accurate pronunciation and reinforcing early-sequence memory.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-indigo-400 to-purple-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🌉 Letters H-P</h4>
+                                            <p className="text-sm">Middle Bridge</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Kinetic learning - swaying side to side while singing to maintain momentum.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-red-400 to-pink-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🎉 Letters Q-Z</h4>
+                                            <p className="text-sm">Celebratory Finish</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Whisper-shout contrast (whisper Q-U, shout V-Z) making completion exciting.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🔍 Missing Letter</h4>
+                                            <p className="text-sm">Problem Solving</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Interactive activity where students identify missing letters in the sequence.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-lime-400 to-green-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">✋ Letter Gestures</h4>
+                                            <p className="text-sm">Action Learning</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Special actions for each letter (A for airplane arms, B for bunny hop).</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-orange-400 to-yellow-500 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🐌 Half-Speed</h4>
+                                            <p className="text-sm">Slow Motion</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Singing slowly like explorers, stretching vowel sounds for phonetic awareness.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-red-500 to-pink-600 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🚀 Turbo Speed</h4>
+                                            <p className="text-sm">Fast Rally</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Racing through alphabet as fast as possible, demonstrating mastery.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🎤 Solo Performance</h4>
+                                            <p className="text-sm">Individual Spotlight</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Volunteers sing three consecutive letters alone with class backup support.</p>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-4 shadow-sm">
+                                        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg p-6 mb-3 text-white text-center">
+                                            <h4 className="text-xl font-bold">🏆 Mastery Pledge</h4>
+                                            <p className="text-sm">Celebration</p>
+                                        </div>
+                                        <p className="text-sm text-gray-700">Group pledge and final sing-through sealing retention and pride.</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+                                    <h4 className="font-bold text-lg text-purple-800 mb-3">🎯 Learning Outcomes</h4>
+                                    <ul className="space-y-2 text-gray-700">
+                                        <li className="flex items-start"><span className="text-purple-600 mr-2">✓</span>Master complete A-Z alphabet sequence</li>
+                                        <li className="flex items-start"><span className="text-purple-600 mr-2">✓</span>Develop phonemic awareness through varied tempo</li>
+                                        <li className="flex items-start"><span className="text-purple-600 mr-2">✓</span>Reinforce learning through kinesthetic activities</li>
+                                        <li className="flex items-start"><span className="text-purple-600 mr-2">✓</span>Build confidence through performances</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
+
+                        {selectedPresentation === 'tinytalkers' && (
+                            <div className="space-y-6">
+                                <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-6 border-2 border-blue-300">
+                                    <h3 className="text-2xl font-bold text-blue-800 mb-3">Tiny Talkers: English for Little Stars</h3>
+                                    <p className="text-gray-700 mb-4">
+                                        Comprehensive beginner curriculum covering greetings, colors, numbers, animals, and emotions.
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        <span className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-700">Beginner A1</span>
+                                        <span className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-700">Songs & Chants</span>
+                                        <span className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-700">Emotional Intelligence</span>
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div className="bg-white border-2 rounded-lg p-6 shadow-sm">
+                                        <div className="bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg p-6 mb-4 text-white text-center">
+                                            <h4 className="text-xl font-bold">👋 Hello & Goodbye</h4>
+                                            <p className="text-sm">Basic Greetings</p>
+                                        </div>
+                                        <div className="space-y-2 text-sm text-gray-700">
+                                            <p><strong>Words:</strong> Hello, Hi, Goodbye, Bye-bye</p>
+                                            <p><strong>Activity:</strong> Interactive "Hello Song" with name responses</p>
+                                            <p><strong>Skills:</strong> Greetings, introductions, waving gestures</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-6 shadow-sm">
+                                        <div className="bg-gradient-to-br from-red-400 via-pink-400 to-purple-500 rounded-lg p-6 mb-4 text-white text-center">
+                                            <h4 className="text-xl font-bold">🌈 Colour Magic</h4>
+                                            <p className="text-sm">Rainbow Adventures</p>
+                                        </div>
+                                        <div className="space-y-2 text-sm text-gray-700">
+                                            <p><strong>Colors:</strong> Red, Blue, Yellow, Green, Orange, Purple, Pink, Brown</p>
+                                            <p><strong>Pattern:</strong> "I see [color]" sentence structure</p>
+                                            <p><strong>Game:</strong> "Find the Colour" interactive activity</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-6 shadow-sm">
+                                        <div className="bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg p-6 mb-4 text-white text-center">
+                                            <h4 className="text-xl font-bold">🔢 Number Fun</h4>
+                                            <p className="text-sm">Counting 1-5</p>
+                                        </div>
+                                        <div className="space-y-2 text-sm text-gray-700">
+                                            <p><strong>Numbers:</strong> 1, 2, 3, 4, 5 with quantity dots</p>
+                                            <p><strong>Chant:</strong> "One dot, one; two dots, two..." with clapping</p>
+                                            <p><strong>Song:</strong> Finger Count Song - "One little finger, tap tap tap"</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-6 shadow-sm">
+                                        <div className="bg-gradient-to-br from-green-400 to-lime-500 rounded-lg p-6 mb-4 text-white text-center">
+                                            <h4 className="text-xl font-bold">🐄 Animal Friends</h4>
+                                            <p className="text-sm">Farm Animals</p>
+                                        </div>
+                                        <div className="space-y-2 text-sm text-gray-700">
+                                            <p><strong>Animals:</strong> Cow (moo), Duck (quack), Pig (oink), Sheep (baa), Horse (neigh)</p>
+                                            <p><strong>Pattern:</strong> "It's a cow. Moo!" sentence frame</p>
+                                            <p><strong>Song:</strong> "Old MacDonald Had a Farm"</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-white border-2 rounded-lg p-6 shadow-sm col-span-2">
+                                        <div className="bg-gradient-to-br from-pink-400 to-rose-500 rounded-lg p-6 mb-4 text-white text-center">
+                                            <h4 className="text-xl font-bold">😊 Feelings & Me</h4>
+                                            <p className="text-sm">Emotional Intelligence</p>
+                                        </div>
+                                        <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                                            <div>
+                                                <p className="font-semibold mb-2">Basic Emotions:</p>
+                                                <ul className="space-y-1">
+                                                    <li>• Happy - big smile 😊</li>
+                                                    <li>• Sad - frown 😢</li>
+                                                    <li>• Mad - crossed arms 😠</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <p className="font-semibold mb-2">Daily Practice:</p>
+                                                <p><strong>Routine:</strong> Start each day with "How are you?" and response "I am ___"</p>
+                                                <p><strong>Skills:</strong> Self-expression, emotional vocabulary</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="bg-cyan-50 border-2 border-cyan-300 rounded-lg p-6">
+                                    <h4 className="font-bold text-lg text-cyan-800 mb-3">🎯 Curriculum Features</h4>
+                                    <ul className="grid md:grid-cols-2 gap-2 text-gray-700">
+                                        <li className="flex items-start"><span className="text-cyan-600 mr-2">✓</span>Interactive songs with movements</li>
+                                        <li className="flex items-start"><span className="text-cyan-600 mr-2">✓</span>Visual cues and large displays</li>
+                                        <li className="flex items-start"><span className="text-cyan-600 mr-2">✓</span>Repetitive sentence patterns</li>
+                                        <li className="flex items-start"><span className="text-cyan-600 mr-2">✓</span>Games for active participation</li>
+                                        <li className="flex items-start"><span className="text-cyan-600 mr-2">✓</span>Daily routines for habits</li>
+                                        <li className="flex items-start"><span className="text-cyan-600 mr-2">✓</span>Emotional intelligence development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
 
             return (
                 <div className="min-h-screen bg-gray-100">
@@ -319,6 +743,8 @@
                     <div className="p-8">
                         {activeSection === 'home' && <HomePage />}
                         {activeSection === 'cv' && <CVSection />}
+                        {activeSection === 'lessons' && <LessonPlansSection />}
+                        {activeSection === 'worksheets' && <WorksheetsSection />}
                         {activeSection === 'presentation' && <PresentationSection />}
                     </div>
                     
@@ -326,7 +752,7 @@
                         <div className="max-w-7xl mx-auto text-center">
                             <p className="text-lg font-semibold mb-2">Sameer Panday - TEFL Professional</p>
                             <p className="text-gray-300 text-sm">📧 sahpanday@gmail.com | 📱 (+27) 66 331 1523</p>
-                            <p className="text-gray-400 text-sm mt-4">© 2025 Teaching Portfolio. Native English Speaker | TEFL Certified | 4 Years Experience</p>
+                            <p className="text-gray-400 text-sm mt-4">© 2025 Teaching Portfolio | Native English Speaker | TEFL Certified | 4 Years Experience</p>
                         </div>
                     </footer>
                 </div>

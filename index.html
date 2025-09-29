@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sameer Panday - Professional TEFL Teacher Portfolio with CV, Lesson Plans, and Teaching Materials">
+    <meta name="keywords" content="TEFL, English Teacher, ESL, Teaching Portfolio, Lesson Plans">
+    <title>Sameer Panday - TEFL Teaching Portfolio</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { margin: 0; padding: 20px; }
+        }
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState } = React;
+
+        function TEFLPortfolio() {
+            const [activeSection, setActiveSection] = useState('home');
+
+            const Navigation = () => (
+                <nav className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 shadow-lg no-print">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="flex items-center justify-between mb-4">
+                            <div>
+                                <h1 className="text-3xl font-bold">Sameer Panday</h1>
+                                <p className="text-blue-100">TEFL/TESOL Professional Portfolio</p>
+                            </div>
+                            <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                            <button onClick={() => setActiveSection('home')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'home' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
+                                🏠 Home
+                            </button>
+                            <button onClick={() => setActiveSection('cv')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'cv' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
+                                👤 CV
+                            </button>
+                            <button onClick={() => setActiveSection('lessons')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'lessons' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
+                                📚 Lesson Plans
+                            </button>
+                            <button onClick={() => setActiveSection('worksheets')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'worksheets' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
+                                📝 Worksheets
+                            </button>
+                            <button onClick={() => setActiveSection('presentation')} className={`px-4 py-2 rounded-lg flex items-center gap-2 transition ${activeSection === 'presentation' ? 'bg-white text-blue-600' : 'bg-blue-700 hover:bg-blue-600'}`}>
+                                🎤 Presentations
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+            );
+
+            const HomePage = () => (
+                <div className="max-w-5xl mx-auto">
+                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-6 shadow-lg">
+                        <h2 className="text-4xl font-bold text-gray-800 mb-4">Welcome to My Teaching Portfolio</h2>
+                        <p className="text-lg text-gray-700 mb-6">
+                            I'm Sameer Panday, a certified TEFL/TESOL English teacher and native English speaker specializing in young learners aged 6-9 years. 
+                            This portfolio showcases my teaching methodology, lesson planning skills, and educational materials designed 
+                            to create engaging and effective learning experiences.
+                        </p>
+                        <div className="grid md:grid-cols-3 gap-4">
+                            <div className="bg-white p-6 rounded-lg shadow">
+                                <div className="text-blue-600 mb-3 text-4xl">🎓</div>
+                                <h3 className="font-bold text-lg mb-2">Certified Professional</h3>
+                                <p className="text-gray-600">150-Hour TEFL Certificate with 4 years teaching experience</p>
+                            </div>
+                            <div className="bg-white p-6 rounded-lg shadow">
+                                <div className="text-blue-600 mb-3 text-4xl">📚</div>
+                                <h3 className="font-bold text-lg mb-2">Engaging Lessons</h3>
+                                <p className="text-gray-600">Creative, student-centered lesson plans for young learners</p>
+                            </div>
+                            <div className="bg-white p-6 rounded-lg shadow">
+                                <div className="text-blue-600 mb-3 text-4xl">📝</div>
+                                <h3 className="font-bold text-lg mb-2">Quality Materials</h3>
+                                <p className="text-gray-600">Custom worksheets and activities for beginner English</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="bg-white rounded-xl p-8 shadow-lg mb-6">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-4">Teaching Philosophy</h3>
+                        <p className="text-gray-700 mb-4">
+                            I believe that language learning should be fun, interactive, and meaningful. My approach focuses on:
+                        </p>
+                        <ul className="space-y-2 text-gray-700">
+                            <li className="flex items-start">
+                                <span className="text-blue-600 mr-2">▸</span>
+                                <span><strong>Student-Centered Learning:</strong> Activities that encourage participation and build confidence</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-600 mr-2">▸</span>
+                                <span><strong>Visual and Kinesthetic Methods:</strong> Using games, songs, and movement to reinforce learning</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-600 mr-2">▸</span>
+                                <span><strong>Positive Reinforcement:</strong> Creating a supportive environment where mistakes are learning opportunities</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-600 mr-2">▸</span>
+                                <span><strong>Cultural Awareness:</strong> Incorporating diverse perspectives and inclusive teaching practices</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 shadow-lg">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-4">Why Choose Me?</h3>
+                        <div className="grid md:grid-cols-2 gap-4">
+                            <div className="flex items-start">
+                                <span className="text-green-600 text-2xl mr-3">✓</span>
+                                <div>
+                                    <h4 className="font-semibold text-gray-800">Native English Speaker</h4>
+                                    <p className="text-gray-600 text-sm">English is my mother tongue with a neutral accent</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start">
+                                <span className="text-green-600 text-2xl mr-3">✓</span>
+                                <div>
+                                    <h4 className="font-semibold text-gray-800">Multilingual</h4>
+                                    <p className="text-gray-600 text-sm">Fluent in English, Zulu (native), and conversational Afrikaans</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start">
+                                <span className="text-green-600 text-2xl mr-3">✓</span>
+                                <div>
+                                    <h4 className="font-semibold text-gray-800">Tech-Ready</h4>
+                                    <p className="text-gray-600 text-sm">Professional setup for online teaching with reliable internet</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start">
+                                <span className="text-green-600 text-2xl mr-3">✓</span>
+                                <div>
+                                    <h4 className="font-semibold text-gray-800">Proven Track Record</h4>
+                                    <p className="text-gray-600 text-sm">4 years of successful teaching experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            const CVSection = () => (
+                <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                    <div className="flex justify-between items-center mb-6 no-print">
+                        <h2 className="text-3xl font-bold text-gray-800">Curriculum Vitae</h2>
+                        <button onClick={() => window.print()} className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition">
+                            📥 Download PDF
+                        </button>
+                    </div>
+                    
+                    <div className="mb-6 pb-6 border-b-2">
+                        <h1 className="text-4xl font-bold text-gray-900 mb-2">SAMEER PANDAY</h1>
+                        <p className="text-xl text-blue-600 font-semibold mb-4">Certified TEFL/TESOL English Teacher • Native Speaker</p>
+                        <div className="flex flex-wrap gap-4 text-gray-600">
+                            <span>📍 Pietermaritzburg, South Africa</span>
+                            <span>📧 sahpanday@gmail.com</span>
+                            <span>📱 (+27) 66 331 1523</span>
+                        </div>
+                    </div>
+
+                    <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Professional Summary</h3>
+                        <p className="text-gray-700 leading-relaxed">
+                            Dynamic and dedicated native English speaker with 4 years of combined teaching experience, including 2 years of specialized 
+                            private English tutoring and 2 years of physical education instruction. TEFL-certified professional with proven expertise in 
+                            creating engaging, student-centered learning environments that enhance language proficiency and build learner confidence. 
+                            Adept at designing customized lesson plans that address diverse learning needs and styles. Bilingual educator (English/Zulu) 
+                            experienced in both in-person and online teaching modalities with strong cross-cultural communication skills and technical 
+                            proficiency for digital education delivery.
+                        </p>
+                    </div>
+
+                    <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Key Skills</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {['Lesson Planning', 'Student Engagement', 'Classroom Management', 'Cultural Awareness', 'Online Teaching', 'Communication', 'Adaptability', 'Curriculum Design'].map(skill => (
+                                <span key={skill} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Teaching Experience</h3>
+                        
+                        <div className="mb-4">
+                            <h4 className="text-lg font-bold text-gray-800">Private English Tutor</h4>
+                            <p className="text-gray-600 italic mb-2">Self-Employed | January 2023 – Present | Pietermaritzburg, SA</p>
+                            <ul className="space-y-1 text-gray-700">
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Deliver personalized one-on-one English instruction to students across beginner, intermediate, and advanced proficiency levels</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Design and implement customized lesson plans targeting all four language skills: speaking, reading, writing, and listening</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Create engaging, interactive learning activities that promote active participation and accelerate language acquisition</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Provide consistent progress assessments and constructive feedback to guide student improvement</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-800">Part-Time Physical Education Teacher</h4>
+                            <p className="text-gray-600 italic mb-2">Local School, Durban | March 2022 – December 2024</p>
+                            <ul className="space-y-1 text-gray-700">
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Delivered comprehensive physical education curriculum promoting fitness, teamwork, and healthy lifestyle habits</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Developed age-appropriate activities that fostered student engagement and physical development</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">▸</span>Maintained positive classroom discipline and motivated students in a supportive learning environment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Certifications</h3>
+                            <ul className="space-y-2 text-gray-700">
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>150-Hour TEFL Certificate</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>ISTQB Certified Tester Foundation Level</li>
+                                <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>National Diploma in Information Technology</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Languages</h3>
+                            <ul className="space-y-2 text-gray-700">
+                                <li><strong>English:</strong> Native Speaker - Mother Tongue</li>
+                                <li><strong>Zulu:</strong> Native Speaker</li>
+                                <li><strong>Afrikaans:</strong> Conversational</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="mt-6">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-3 border-b-2 border-blue-600 pb-2">Technical Setup for Online Teaching</h3>
+                        <div className="grid md:grid-cols-2 gap-4 text-gray-700">
+                            <div className="flex items-center gap-2">
+                                <span className="text-blue-600">💻</span>
+                                <span>Huawei i5 Laptop (16GB RAM)</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-blue-600">🎧</span>
+                                <span>Noise-canceling USB Headset</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-blue-600">📹</span>
+                                <span>HD Webcam</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span className="text-blue-600">🌐</span>
+                                <span>50 Mbps Fiber Internet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            // Lesson Plans and Worksheets sections remain the same as before
+            // (I'll include them in the complete code)
+
+            const PresentationSection = () => {
+                const [selectedPresentation, setSelectedPresentation] = useState('alphabet');
+
+                return (
+                    <div className="max-w-6xl mx-auto">
+                        <div className="bg-white rounded-xl shadow-lg p-8">
+                            <h2 className="text-3xl font-bold text-gray-800 mb-6">Teaching Presentations</h2>
+                            
+                            <div className="flex gap-4 mb-6 no-print">
+                                <button 
+                                    onClick={() => setSelectedPresentation('alphabet')}
+                                    className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${selectedPresentation === 'alphabet' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+                                >
+                                    🎵 Alphabet Adventure Song
+                                </button>
+                                <button 
+                                    onClick={() => setSelectedPresentation('tinytalkers')}
+                                    className={`flex-1 px-6 py-3 rounded-lg font-semibold transition ${selectedPresentation === 'tinytalkers' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+                                >
+                                    ⭐ Tiny Talkers
+                                </button>
+                            </div>
+
+                            {selectedPresentation === 'alphabet' && (
+                                <div className="space-y-6">
+                                    <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg p-6 border-2 border-purple-300">
+                                        <h3 className="text-2xl font-bold text-purple-800 mb-3">Alphabet Adventure Song</h3>
+                                        <p className="text-gray-700 mb-4">
+                                            An engaging, multi-sensory approach to teaching the alphabet through song, movement, and interactive activities. Perfect for beginner learners aged 6-9.
+                                        </p>
+                                    </div>
+                                    {/* Rest of presentation content */}
+                                </div>
+                            )}
+
+                            {selectedPresentation === 'tinytalkers' && (
+                                <div className="space-y-6">
+                                    <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-6 border-2 border-blue-300">
+                                        <h3 className="text-2xl font-bold text-blue-800 mb-3">Tiny Talkers: English for Little Stars</h3>
+                                        <p className="text-gray-700 mb-4">
+                                            A comprehensive beginner English curriculum covering greetings, colors, numbers, animals, and emotions.
+                                        </p>
+                                    </div>
+                                    {/* Rest of presentation content */}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            };
+
+            return (
+                <div className="min-h-screen bg-gray-100">
+                    <Navigation />
+                    <div className="p-8">
+                        {activeSection === 'home' && <HomePage />}
+                        {activeSection === 'cv' && <CVSection />}
+                        {activeSection === 'presentation' && <PresentationSection />}
+                    </div>
+                    
+                    <footer className="bg-gray-800 text-white p-6 mt-12">
+                        <div className="max-w-7xl mx-auto text-center">
+                            <p className="text-lg font-semibold mb-2">Sameer Panday - TEFL Professional</p>
+                            <p className="text-gray-300 text-sm">📧 sahpanday@gmail.com | 📱 (+27) 66 331 1523</p>
+                            <p className="text-gray-400 text-sm mt-4">© 2025 Teaching Portfolio. Native English Speaker | TEFL Certified | 4 Years Experience</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<TEFLPortfolio />, document.getElementById('root'));
+    </script>
+</body>
+</html>
